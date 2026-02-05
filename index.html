@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Fredoka -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
+
     <style>
         body {
             font-family: 'Fredoka', sans-serif;
@@ -25,13 +26,45 @@
             opacity: 0.6;
             animation: float 10s infinite ease-in-out alternate;
         }
-        .blob-1 { top: -10%; left: -10%; width: 400px; height: 400px; background: #ff9a9e; border-radius: 40% 60% 70% 30%; animation-delay: 0s; }
-        .blob-2 { bottom: -10%; right: -10%; width: 500px; height: 500px; background: #a18cd1; border-radius: 60% 40% 30% 70%; animation-delay: -5s; }
-        .blob-3 { top: 40%; left: 40%; width: 300px; height: 300px; background: #fad0c4; border-radius: 30% 70% 70% 30%; animation-delay: -2s; }
+
+        .blob-1 {
+            top: -10%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: #ff9a9e;
+            border-radius: 40% 60% 70% 30%;
+            animation-delay: 0s;
+        }
+
+        .blob-2 {
+            bottom: -10%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: #a18cd1;
+            border-radius: 60% 40% 30% 70%;
+            animation-delay: -5s;
+        }
+
+        .blob-3 {
+            top: 40%;
+            left: 40%;
+            width: 300px;
+            height: 300px;
+            background: #fad0c4;
+            border-radius: 30% 70% 70% 30%;
+            animation-delay: -2s;
+        }
 
         @keyframes float {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            100% { transform: translate(30px, 50px) rotate(10deg); }
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(30px, 50px) rotate(10deg);
+            }
         }
 
         /* Cute Card Styles */
@@ -43,6 +76,7 @@
             border: 2px solid rgba(255, 255, 255, 0.8);
             transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
         }
+
         .cute-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.1);
@@ -52,10 +86,14 @@
         .btn-primary {
             background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
             color: #fff;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
             transition: all 0.2s ease;
         }
-        .btn-primary:active { transform: scale(0.95); }
+
+        .btn-primary:active {
+            transform: scale(0.95);
+        }
+
         .btn-primary:disabled {
             background: #e0e0e0;
             color: #a0a0a0;
@@ -67,12 +105,21 @@
         #error-modal {
             transition: opacity 0.3s ease;
         }
+
         .modal-content {
             animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+
         @keyframes popIn {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
 
         /* Visualizer Bars */
@@ -82,12 +129,32 @@
             border-radius: 99px;
             animation: equalizer 1s ease-in-out infinite;
         }
-        .bar:nth-child(1) { height: 20px; animation-duration: 0.8s; }
-        .bar:nth-child(2) { height: 30px; animation-duration: 1.1s; }
-        .bar:nth-child(3) { height: 40px; animation-duration: 1.3s; }
-        .bar:nth-child(4) { height: 25px; animation-duration: 0.9s; }
-        .bar:nth-child(5) { height: 15px; animation-duration: 1.2s; }
-        
+
+        .bar:nth-child(1) {
+            height: 20px;
+            animation-duration: 0.8s;
+        }
+
+        .bar:nth-child(2) {
+            height: 30px;
+            animation-duration: 1.1s;
+        }
+
+        .bar:nth-child(3) {
+            height: 40px;
+            animation-duration: 1.3s;
+        }
+
+        .bar:nth-child(4) {
+            height: 25px;
+            animation-duration: 0.9s;
+        }
+
+        .bar:nth-child(5) {
+            height: 15px;
+            animation-duration: 1.2s;
+        }
+
         .equalizer-container.paused .bar {
             animation: none;
             height: 10px !important;
@@ -95,8 +162,15 @@
         }
 
         @keyframes equalizer {
-            0%, 100% { height: 10px; }
-            50% { height: 45px; }
+
+            0%,
+            100% {
+                height: 10px;
+            }
+
+            50% {
+                height: 45px;
+            }
         }
 
         /* Status Badge */
@@ -106,14 +180,91 @@
             border-radius: 99px;
             font-weight: 600;
         }
-        .status-idle { background: #f3f4f6; color: #9ca3af; }
-        .status-active { background: #d1fae5; color: #059669; }
-        .status-error { background: #fee2e2; color: #dc2626; }
 
-        video { border-radius: 1rem; background-color: #f9fafb; width: 100%; transform: scaleX(-1); }
-        canvas { width: 100%; height: 100px; border-radius: 1rem; }
+        .status-idle {
+            background: #f3f4f6;
+            color: #9ca3af;
+        }
+
+        .status-active {
+            background: #d1fae5;
+            color: #059669;
+        }
+
+        .status-error {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        video {
+            border-radius: 1rem;
+            background-color: #f9fafb;
+            width: 100%;
+            transform: scaleX(-1);
+        }
+
+        canvas {
+            width: 100%;
+            height: 100px;
+            border-radius: 1rem;
+        }
+
+        /* Diagnostic List Item */
+        .diag-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .diag-item:last-child {
+            border-bottom: none;
+        }
+
+        .diag-label {
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .diag-value {
+            font-size: 0.875rem;
+            font-weight: 600;
+            font-family: ui-monospace, SFMono-Regular;
+        }
+
+        .text-pass {
+            color: #10b981;
+        }
+
+        .text-pending {
+            color: #9ca3af;
+        }
+
+        .text-fail {
+            color: #ef4444;
+        }
+
+        /* Progress Bar Small */
+        .mini-progress {
+            width: 100%;
+            height: 4px;
+            background: #f3f4f6;
+            border-radius: 2px;
+            margin-top: 4px;
+            overflow: hidden;
+        }
+
+        .mini-progress-bar {
+            height: 100%;
+            background: #a18cd1;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
     </style>
 </head>
+
 <body class="min-h-screen flex items-center justify-center p-4">
 
     <!-- Background Decorations -->
@@ -132,7 +283,7 @@
 
         <!-- Grid Layout -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
+
             <!-- 1. Webcam Test -->
             <div class="cute-card p-6 flex flex-col h-full">
                 <div class="flex justify-between items-center mb-4">
@@ -141,8 +292,9 @@
                     </h2>
                     <span id="cam-status" class="status-badge status-idle">Idle</span>
                 </div>
-                
-                <div class="relative flex-grow bg-gray-100 rounded-2xl overflow-hidden border-2 border-dashed border-gray-300 flex items-center justify-center mb-4 min-h-[200px]">
+
+                <div
+                    class="relative flex-grow bg-gray-100 rounded-2xl overflow-hidden border-2 border-dashed border-gray-300 flex items-center justify-center mb-4 min-h-[200px]">
                     <video id="webcam-video" autoplay playsinline class="hidden absolute inset-0 object-cover"></video>
                     <div id="cam-placeholder" class="text-center p-4">
                         <div class="text-4xl mb-2 opacity-50">📹</div>
@@ -166,7 +318,8 @@
                     <span id="mic-status" class="status-badge status-idle">Idle</span>
                 </div>
 
-                <div class="relative flex-grow bg-gray-100 rounded-2xl overflow-hidden border-2 border-dashed border-gray-300 flex items-center justify-center mb-4 min-h-[200px]">
+                <div
+                    class="relative flex-grow bg-gray-100 rounded-2xl overflow-hidden border-2 border-dashed border-gray-300 flex items-center justify-center mb-4 min-h-[200px]">
                     <canvas id="mic-canvas"></canvas>
                     <div id="mic-overlay" class="absolute inset-0 flex items-center justify-center pointer-events-none">
                         <p class="text-sm text-gray-400">Speak to visualize</p>
@@ -197,40 +350,156 @@
                     <span id="speaker-status" class="status-badge status-idle">Idle</span>
                 </div>
 
-                <audio id="speaker-audio" src="https://cdn.freesound.org/previews/841/841334_5674468-lq.mp3" preload="auto"></audio>
+                <audio id="speaker-audio" src="assets/test-sound.mp3" preload="auto"></audio>
 
                 <div class="flex-grow flex flex-col items-center justify-center mb-4 min-h-[200px]">
-                    <div id="speaker-viz" class="equalizer-container paused flex items-end justify-center gap-2 h-24 w-full px-8">
+                    <div id="speaker-viz"
+                        class="equalizer-container paused flex items-end justify-center gap-2 h-24 w-full px-8">
                         <div class="bar"></div>
                         <div class="bar"></div>
                         <div class="bar"></div>
                         <div class="bar"></div>
                         <div class="bar"></div>
                     </div>
-                    <p class="text-sm text-gray-400 mt-6 text-center" id="speaker-text">Click button to play test sound!</p>
+                    <p class="text-sm text-gray-400 mt-6 text-center" id="speaker-text">Click button to play test sound!
+                    </p>
                 </div>
 
-                <button id="btn-speaker" class="btn-primary w-full py-3 rounded-xl font-bold shadow-lg shadow-pink-200/50">
+                <button id="btn-speaker"
+                    class="btn-primary w-full py-3 rounded-xl font-bold shadow-lg shadow-pink-200/50">
                     Play Sound
+                </button>
+            </div>
+        </div>
+
+        <!-- Row 2: Diagnostics -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+
+            <!-- 4. Network Support -->
+            <div class="cute-card p-6 flex flex-col h-full">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold text-gray-700 flex items-center gap-2">
+                        <span class="text-2xl">🌐</span> Network
+                    </h2>
+                    <span id="net-status" class="status-badge status-idle">Idle</span>
+                </div>
+
+                <div class="flex-grow space-y-1 mb-4">
+                    <div class="diag-item">
+                        <span class="diag-label">UDP Support</span>
+                        <span id="net-udp" class="diag-value text-pending">Wait</span>
+                    </div>
+                    <div class="diag-item">
+                        <span class="diag-label">IPv6 Support</span>
+                        <span id="net-ipv6" class="diag-value text-pending">Wait</span>
+                    </div>
+                    <div class="diag-item">
+                        <span class="diag-label">Public IP Discovery</span>
+                        <span id="net-stun" class="diag-value text-pending">Wait</span>
+                    </div>
+                    <div class="mt-4 p-3 bg-blue-50 rounded-xl text-xs text-blue-600 border border-blue-100 italic">
+                        Checking if your network allows WebRTC traffic via UDP and finding your gateway.
+                    </div>
+                </div>
+
+                <button id="btn-net" class="btn-primary w-full py-3 rounded-xl font-bold shadow-lg shadow-pink-200/50">
+                    Check Network
+                </button>
+            </div>
+
+            <!-- 5. Connectivity -->
+            <div class="cute-card p-6 flex flex-col h-full">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold text-gray-700 flex items-center gap-2">
+                        <span class="text-2xl">🔗</span> Connectivity
+                    </h2>
+                    <span id="conn-status" class="status-badge status-idle">Idle</span>
+                </div>
+
+                <div class="flex-grow space-y-1 mb-4">
+                    <div class="diag-item">
+                        <span class="diag-label">Host Candidates</span>
+                        <span id="conn-host" class="diag-value text-pending">0</span>
+                    </div>
+                    <div class="diag-item">
+                        <span class="diag-label">STUN (srflx)</span>
+                        <span id="conn-srflx" class="diag-value text-pending">0</span>
+                    </div>
+                    <div class="diag-item">
+                        <span class="diag-label">TURN (relay)</span>
+                        <span id="conn-relay" class="diag-value text-pending">0</span>
+                    </div>
+                    <div class="mt-4">
+                        <span class="text-[10px] text-gray-400 uppercase font-bold">Gathering Progress</span>
+                        <div class="mini-progress">
+                            <div id="conn-progress" class="mini-progress-bar"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="btn-conn" class="btn-primary w-full py-3 rounded-xl font-bold shadow-lg shadow-pink-200/50">
+                    Test ICE
+                </button>
+            </div>
+
+            <!-- 6. Throughput & Quality -->
+            <div class="cute-card p-6 flex flex-col h-full">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold text-gray-700 flex items-center gap-2">
+                        <span class="text-2xl">⚡</span> Throughput
+                    </h2>
+                    <span id="speed-status" class="status-badge status-idle">Idle</span>
+                </div>
+
+                <div class="flex-grow space-y-1 mb-4">
+                    <div class="diag-item">
+                        <span class="diag-label">Bitrate (Loopback)</span>
+                        <span id="speed-bitrate" class="diag-value">0 Mbps</span>
+                    </div>
+                    <div class="diag-item">
+                        <span class="diag-label">Latency (RTT)</span>
+                        <span id="speed-rtt" class="diag-value">0 ms</span>
+                    </div>
+                    <div class="diag-item">
+                        <span class="diag-label">Jitter</span>
+                        <span id="speed-jitter" class="diag-value">0 ms</span>
+                    </div>
+                    <div class="mt-4 p-3 bg-purple-50 rounded-xl">
+                        <div class="flex justify-between text-[10px] font-bold text-purple-600 uppercase mb-1">
+                            <span>Test Progress</span>
+                            <span id="speed-percent">0%</span>
+                        </div>
+                        <div class="mini-progress">
+                            <div id="speed-progress" class="mini-progress-bar" style="background: #a18cd1;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="btn-speed"
+                    class="btn-primary w-full py-3 rounded-xl font-bold shadow-lg shadow-pink-200/50">
+                    Run Speed Test
                 </button>
             </div>
         </div>
     </div>
 
     <!-- Custom Error Modal -->
-    <div id="error-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/30 backdrop-blur-sm">
-        <div class="modal-content bg-white p-8 rounded-3xl shadow-2xl max-w-sm text-center border-4 border-pink-100 m-4">
+    <div id="error-modal"
+        class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/30 backdrop-blur-sm">
+        <div
+            class="modal-content bg-white p-8 rounded-3xl shadow-2xl max-w-sm text-center border-4 border-pink-100 m-4">
             <div class="text-6xl mb-4">🥺</div>
             <h3 id="modal-title" class="text-2xl font-bold text-gray-700 mb-2">Oops!</h3>
             <p id="modal-desc" class="text-gray-500 mb-6">Something went wrong.</p>
-            
+
             <!-- Suggestion Box -->
             <div class="bg-yellow-50 p-4 rounded-xl mb-6 text-left border border-yellow-100">
                 <p class="text-sm font-bold text-yellow-700 flex items-center gap-1">💡 Suggestion:</p>
                 <p id="modal-suggestion" class="text-sm text-gray-600 mt-1 leading-relaxed">...</p>
             </div>
 
-            <button onclick="closeModal()" class="bg-pink-400 hover:bg-pink-500 text-white px-8 py-3 rounded-full font-bold shadow-md transition transform active:scale-95">
+            <button onclick="closeModal()"
+                class="bg-pink-400 hover:bg-pink-500 text-white px-8 py-3 rounded-full font-bold shadow-md transition transform active:scale-95">
                 Got it!
             </button>
         </div>
@@ -256,42 +525,42 @@
             let suggestionMsg = "Please try refreshing the page.";
 
             // Handle specific error names
-            switch(error.name) {
+            switch (error.name) {
                 case 'NotAllowedError':
                 case 'PermissionDeniedError':
                     errorTitle = "Permission Denied";
                     errorMsg = `You clicked "Block" or "Deny" for the ${deviceName}.`;
                     suggestionMsg = "Look at your address bar. Click the lock icon 🔒, and set permissions to Allow.";
                     break;
-                    
+
                 case 'NotFoundError':
                 case 'DevicesNotFoundError':
                     errorTitle = "Device Not Found";
                     errorMsg = `We couldn't detect a ${deviceName} on your device.`;
                     suggestionMsg = "Make sure your camera/mic is plugged in properly and not in use by another app. Try unplugging and plugging it back in.";
                     break;
-                    
+
                 case 'NotReadableError':
                 case 'TrackStartError':
                     errorTitle = "Device Busy";
                     errorMsg = `The ${deviceName} is already being used by another application.`;
                     suggestionMsg = "Please close video conferencing apps like Zoom, Teams, or other browser tabs that might be using it.";
                     break;
-                    
+
                 case 'OverconstrainedError':
                 case 'ConstraintNotSatisfiedError':
                     errorTitle = "Setting Error";
                     errorMsg = "The requested settings do not match your device.";
                     suggestionMsg = "Try using a different browser, or reset your browser's permission settings for this site.";
                     break;
-                    
+
                 case 'TypeError':
                 case 'SecurityError':
                     errorTitle = "Security Issue";
                     errorMsg = "The browser is blocking access to hardware.";
                     suggestionMsg = "Ensure you are visiting this page via HTTPS or localhost. Local files sometimes block access.";
                     break;
-                    
+
                 default:
                     errorTitle = "Error";
                     errorMsg = error.message || "Something went wrong.";
@@ -301,7 +570,7 @@
             title.textContent = errorTitle;
             desc.textContent = errorMsg;
             suggestion.textContent = suggestionMsg;
-            
+
             modal.classList.remove('hidden');
         };
 
@@ -338,7 +607,7 @@
                 try {
                     setStatus('cam-status', 'Requesting...', 'idle');
                     camStream = await navigator.mediaDevices.getUserMedia({ video: true });
-                    
+
                     videoElement.srcObject = camStream;
                     videoElement.onloadedmetadata = () => {
                         videoElement.classList.remove('hidden');
@@ -391,13 +660,13 @@
             let sum = 0;
             for (let i = 0; i < bufferLength; i++) sum += dataArray[i];
             const average = sum / bufferLength;
-            
+
             // Update UI indicators
-            const percentage = Math.min(100, Math.round((average / 255) * 100) * 2); 
+            const percentage = Math.min(100, Math.round((average / 255) * 100) * 2);
             volBar.style.width = `${percentage}%`;
             volText.textContent = `${percentage}%`;
-            
-            if(percentage > 5) micOverlay.style.opacity = 0;
+
+            if (percentage > 5) micOverlay.style.opacity = 0;
             else micOverlay.style.opacity = 1;
 
             // Draw cute rounded bars
@@ -406,14 +675,14 @@
             let x = 0;
 
             const r = 255;
-            const g = 155 + (100 - (average/2.5));
+            const g = 155 + (100 - (average / 2.5));
             const b = 160;
 
             canvasCtx.fillStyle = `rgb(${r},${g},${b})`;
 
             for (let i = 0; i < bufferLength; i++) {
                 barHeight = (dataArray[i] / 255) * micCanvas.height;
-                
+
                 canvasCtx.beginPath();
                 canvasCtx.roundRect(x, micCanvas.height - barHeight, barWidth, barHeight, 5);
                 canvasCtx.fill();
@@ -430,12 +699,12 @@
                 micStream.getTracks().forEach(track => track.stop());
                 if (audioCtx && audioCtx.state !== 'closed') audioCtx.close();
                 cancelAnimationFrame(animationId);
-                
+
                 canvasCtx.clearRect(0, 0, micCanvas.width, micCanvas.height);
                 micOverlay.style.opacity = 1;
                 volBar.style.width = '0%';
                 volText.textContent = '0%';
-                
+
                 btnMic.textContent = 'Test Mic';
                 setStatus('mic-status', 'Idle', 'idle');
                 micStream = null;
@@ -445,11 +714,11 @@
                 try {
                     setStatus('mic-status', 'Requesting...', 'idle');
                     micStream = await navigator.mediaDevices.getUserMedia({ audio: true });
-                    
+
                     audioCtx = new (window.AudioContext || window.webkitAudioContext)();
                     const source = audioCtx.createMediaStreamSource(micStream);
                     analyser = audioCtx.createAnalyser();
-                    analyser.fftSize = 64; 
+                    analyser.fftSize = 64;
                     source.connect(analyser);
 
                     btnMic.textContent = 'Stop Mic';
@@ -475,11 +744,11 @@
             speakerText.textContent = "Buffering...";
             btnSpeaker.disabled = true;
             btnSpeaker.textContent = "Loading...";
-            
+
             try {
                 speakerAudio.currentTime = 0;
                 await speakerAudio.play();
-                
+
                 setStatus('speaker-status', 'Playing...', 'active');
                 speakerViz.classList.remove('paused');
                 speakerText.textContent = "Sound is playing! 🔊";
@@ -491,7 +760,7 @@
                 speakerText.textContent = "Playback failed or blocked.";
                 btnSpeaker.disabled = false;
                 btnSpeaker.textContent = "Try Again";
-                
+
                 // Optional: Show simple modal for speaker errors too, though less common to be permission related
                 // showErrorModal({name: 'Error', message: 'Could not play audio.'}, "Speaker");
             }
@@ -504,17 +773,229 @@
             btnSpeaker.disabled = false;
             btnSpeaker.textContent = "Play Sound";
         };
-        
+
         speakerAudio.onerror = () => {
             setStatus('speaker-status', 'Error', 'error');
             speakerText.textContent = "Could not load audio file.";
             btnSpeaker.disabled = false;
             btnSpeaker.textContent = "Error";
         };
-        
+
         speakerAudio.onwaiting = () => speakerText.textContent = "Buffering...";
         speakerAudio.onplaying = () => speakerText.textContent = "Sound is playing! 🔊";
 
+
+        // --- 4. Network Support Logic ---
+        const btnNet = document.getElementById('btn-net');
+        btnNet.addEventListener('click', async () => {
+            setStatus('net-status', 'Testing...', 'active');
+            btnNet.disabled = true;
+
+            const udpEl = document.getElementById('net-udp');
+            const ipv6El = document.getElementById('net-ipv6');
+            const stunEl = document.getElementById('net-stun');
+
+            // Reset UI
+            [udpEl, ipv6El, stunEl].forEach(el => { el.textContent = 'Wait'; el.className = 'diag-value text-pending'; });
+
+            try {
+                // We use a simple ICE gathering test to check for UDP/STUN
+                const pc = new RTCPeerConnection({
+                    iceServers: [{ urls: 'stun:stun.l.google.com:19302' }]
+                });
+
+                pc.createDataChannel('test');
+                const offer = await pc.createOffer();
+                await pc.setLocalDescription(offer);
+
+                let foundSrflx = false;
+                let foundIpv6 = false;
+
+                const checkDone = new Promise(resolve => {
+                    pc.onicecandidate = (e) => {
+                        if (!e.candidate) {
+                            resolve();
+                            return;
+                        }
+                        const c = e.candidate.candidate;
+                        if (c.includes('srflx')) foundSrflx = true;
+                        if (c.includes(':')) foundIpv6 = true; // Very simple IPv6 check in candidate string
+                    };
+                    setTimeout(resolve, 3000); // 3s timeout
+                });
+
+                await checkDone;
+                pc.close();
+
+                udpEl.textContent = 'Pass'; udpEl.className = 'diag-value text-pass';
+                ipv6El.textContent = foundIpv6 ? 'Detected' : 'Not Found';
+                ipv6El.className = foundIpv6 ? 'diag-value text-pass' : 'diag-value text-pending';
+                stunEl.textContent = foundSrflx ? 'Success' : 'Failed';
+                stunEl.className = foundSrflx ? 'diag-value text-pass' : 'diag-value text-fail';
+
+                setStatus('net-status', 'Done', 'active');
+            } catch (err) {
+                console.error(err);
+                setStatus('net-status', 'Error', 'error');
+            } finally {
+                btnNet.disabled = false;
+            }
+        });
+
+        // --- 5. Connectivity (ICE) Logic ---
+        const btnConn = document.getElementById('btn-conn');
+        btnConn.addEventListener('click', async () => {
+            setStatus('conn-status', 'Gathering...', 'active');
+            btnConn.disabled = true;
+
+            const hostEl = document.getElementById('conn-host');
+            const srflxEl = document.getElementById('conn-srflx');
+            const relayEl = document.getElementById('conn-relay');
+            const progressEl = document.getElementById('conn-progress');
+
+            let counts = { host: 0, srflx: 0, relay: 0 };
+            progressEl.style.width = '0%';
+
+            try {
+                const pc = new RTCPeerConnection({
+                    iceServers: [
+                        { urls: 'stun:stun.l.google.com:19302' },
+                        // Adding a public testing TURN server might be too much, but we can detect relay if any exists
+                    ]
+                });
+
+                pc.onicecandidate = (e) => {
+                    if (e.candidate) {
+                        const type = e.candidate.type;
+                        if (counts[type] !== undefined) {
+                            counts[type]++;
+                            document.getElementById(`conn-${type}`).textContent = counts[type];
+                            document.getElementById(`conn-${type}`).className = 'diag-value text-pass';
+                        }
+                    }
+                };
+
+                pc.onicegatheringstatechange = () => {
+                    if (pc.iceGatheringState === 'complete') {
+                        progressEl.style.width = '100%';
+                        setStatus('conn-status', 'Finished', 'active');
+                    }
+                };
+
+                pc.createDataChannel('test');
+                const offer = await pc.createOffer();
+                await pc.setLocalDescription(offer);
+
+                const animateProgress = () => {
+                    let w = parseInt(progressEl.style.width);
+                    if (w < 90 && pc.iceGatheringState !== 'complete') {
+                        progressEl.style.width = (w + 10) + '%';
+                        setTimeout(animateProgress, 400);
+                    }
+                };
+                animateProgress();
+
+            } catch (err) {
+                console.error(err);
+                setStatus('conn-status', 'Error', 'error');
+            } finally {
+                btnConn.disabled = false;
+            }
+        });
+
+        // --- 6. Throughput Speed Test Logic ---
+        const btnSpeed = document.getElementById('btn-speed');
+        btnSpeed.addEventListener('click', async () => {
+            setStatus('speed-status', 'Testing...', 'active');
+            btnSpeed.disabled = true;
+
+            const bitrateEl = document.getElementById('speed-bitrate');
+            const rttEl = document.getElementById('speed-rtt');
+            const jitterEl = document.getElementById('speed-jitter');
+            const progressEl = document.getElementById('speed-progress');
+            const percentEl = document.getElementById('speed-percent');
+
+            // Setup loopback
+            const pc1 = new RTCPeerConnection();
+            const pc2 = new RTCPeerConnection();
+
+            pc1.onicecandidate = e => e.candidate && pc2.addIceCandidate(e.candidate);
+            pc2.onicecandidate = e => e.candidate && pc1.addIceCandidate(e.candidate);
+
+            const dc1 = pc1.createDataChannel('throughput');
+            let dataChunk = new Uint8Array(16384); // 16KB chunk
+            let totalBytes = 0;
+            let startTime = null;
+            let running = true;
+
+            dc1.onopen = () => {
+                startTime = performance.now();
+                const sendInitial = () => {
+                    while (dc1.bufferedAmount < 1024 * 1024 && running) {
+                        dc1.send(dataChunk);
+                        totalBytes += dataChunk.byteLength;
+                    }
+                    if (running) setTimeout(sendInitial, 50);
+                };
+                sendInitial();
+            };
+
+            // Monitor stats
+            let lastBytes = 0;
+            let lastTime = 0;
+            let testDuration = 5000; // 5 seconds test
+            let interval = setInterval(async () => {
+                const stats = await pc1.getStats();
+                stats.forEach(report => {
+                    if (report.type === 'remote-candidate' || report.type === 'candidate-pair') {
+                        if (report.currentRoundTripTime) {
+                            rttEl.textContent = (report.currentRoundTripTime * 1000).toFixed(1) + ' ms';
+                        }
+                    }
+                    if (report.type === 'outbound-rtp' || report.type === 'data-channel') {
+                        // Data channel stats are limited, we'll calculate from totalBytes
+                    }
+                });
+
+                const now = performance.now();
+                const elapsed = now - startTime;
+                if (startTime) {
+                    const mbps = ((totalBytes - lastBytes) * 8) / ((now - lastTime) / 1000) / 1000000;
+                    bitrateEl.textContent = mbps.toFixed(2) + ' Mbps';
+
+                    const progress = Math.min(100, (elapsed / testDuration) * 100);
+                    progressEl.style.width = progress + '%';
+                    percentEl.textContent = Math.round(progress) + '%';
+                }
+                lastBytes = totalBytes;
+                lastTime = now;
+
+                if (elapsed >= testDuration) {
+                    running = false;
+                    clearInterval(interval);
+                    pc1.close();
+                    pc2.close();
+                    btnSpeed.disabled = false;
+                    setStatus('speed-status', 'Done', 'active');
+                }
+            }, 500);
+
+            try {
+                const offer = await pc1.createOffer();
+                await pc1.setLocalDescription(offer);
+                await pc2.setRemoteDescription(offer);
+                const answer = await pc2.createAnswer();
+                await pc2.setLocalDescription(answer);
+                await pc1.setRemoteDescription(answer);
+            } catch (err) {
+                console.error(err);
+                clearInterval(interval);
+                setStatus('speed-status', 'Error', 'error');
+                btnSpeed.disabled = false;
+            }
+        });
+
     </script>
 </body>
+
 </html>
